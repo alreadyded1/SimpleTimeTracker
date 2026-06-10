@@ -18,10 +18,14 @@ cd "$INSTALL_DIR/frontend"
 npm install --silent
 npm run build
 
+echo "==> Updating systemd service..."
+cp "$INSTALL_DIR/cabbytime.service" /etc/systemd/system/cabbytime.service
+systemctl daemon-reload
+
 echo "==> Restarting service..."
 systemctl restart cabbytime
 systemctl --no-pager status cabbytime
 
 echo ""
 echo "==> Update complete."
-echo "    Open: http://$(hostname -I | awk '{print $1}'):${PORT}"
+echo "    Open: http://$(hostname -I | awk '{print $1}')"
