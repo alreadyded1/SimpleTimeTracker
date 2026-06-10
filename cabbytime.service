@@ -6,8 +6,9 @@ After=network.target
 Type=simple
 User=cabbytime
 Group=cabbytime
+AmbientCapabilities=CAP_NET_BIND_SERVICE
 WorkingDirectory=/opt/cabbytime/backend
-ExecStart=/opt/cabbytime/venv/bin/uvicorn main:app --host 0.0.0.0 --port 8000
+ExecStart=/opt/cabbytime/venv/bin/uvicorn main:app --host 0.0.0.0 --port 80
 Restart=on-failure
 RestartSec=5
 Environment=DB_DIR=/opt/cabbytime/data

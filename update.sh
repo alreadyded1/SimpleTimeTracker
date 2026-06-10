@@ -2,7 +2,7 @@
 set -euo pipefail
 
 INSTALL_DIR="/opt/cabbytime"
-PORT=8000
+PORT=80
 
 echo "==> Pulling latest code..."
 git -C "$INSTALL_DIR" pull

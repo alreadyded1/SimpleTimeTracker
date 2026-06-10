@@ -40,7 +40,7 @@ The installer will:
 5. Create a `cabbytime` system user
 6. Install and start the systemd service
 
-Access the app at `http://<LXC-IP>:8000`.
+Access the app at `http://<LXC-IP>`.
 
 ## Update
 
@@ -57,7 +57,7 @@ cd backend
 DB_DIR=./data python3 -m venv ../venv
 source ../venv/bin/activate
 pip install -r requirements.txt
-DB_DIR=./data uvicorn main:app --reload --port 8000
+DB_DIR=./data uvicorn main:app --reload --port 8000  # use 8000 locally; prod runs on 80
 ```
 
 **Frontend (Vite dev server with proxy to backend):**
@@ -65,7 +65,7 @@ DB_DIR=./data uvicorn main:app --reload --port 8000
 ```bash
 cd frontend
 npm install
-npm run dev   # runs on :5173, proxies /api to :8000
+npm run dev   # runs on :5173, proxies /api to :8000 (dev only)
 ```
 
 ## Data
@@ -82,7 +82,7 @@ journalctl -u cabbytime -f
 
 ## API
 
-Interactive docs available at `http://<host>:8000/api/docs`.
+Interactive docs available at `http://<host>/api/docs`.
 
 | Method | Path | Description |
 |--------|------|-------------|

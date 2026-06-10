@@ -4,7 +4,7 @@ set -euo pipefail
 INSTALL_DIR="/opt/cabbytime"
 REPO_URL="https://github.com/alreadyded1/SimpleTimeTracker.git"
 SERVICE_USER="cabbytime"
-PORT=8000
+PORT=80
 
 echo "==> Updating packages..."
 apt-get update -qq
