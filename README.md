@@ -19,17 +19,26 @@ Self-hosted work time tracker. Runs as a systemd service inside a Proxmox LXC co
 
 ## Install
 
+This is a private repo, so you'll need GitHub credentials on the target machine before cloning. The easiest approach is a [Personal Access Token](https://github.com/settings/tokens) (classic, `repo` scope).
+
 Run as root on the target machine:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/alreadyded1/SimpleTimeTracker/main/install.sh)
+# Install git if not present
+apt-get update && apt-get install -y git
+
+# Clone (enter your GitHub username and PAT when prompted)
+git clone https://github.com/alreadyded1/SimpleTimeTracker.git /opt/cabbytime
+
+# Run the installer
+bash /opt/cabbytime/install.sh
 ```
 
-Or clone first:
+To avoid repeated credential prompts on future updates, cache the token:
 
 ```bash
-git clone https://github.com/alreadyded1/SimpleTimeTracker.git /opt/cabbytime
-bash /opt/cabbytime/install.sh
+git -C /opt/cabbytime config credential.helper store
+git -C /opt/cabbytime pull  # enter credentials once; stored in ~/.git-credentials
 ```
 
 The installer will:
