@@ -8,9 +8,9 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 
-from ..database import get_db
-from ..models import Block
-from ..schemas import BlockCreate, BlockUpdate, BlockResponse
+from database import get_db
+from models import Block
+from schemas import BlockCreate, BlockUpdate, BlockResponse
 
 router = APIRouter(prefix="/blocks", tags=["blocks"])
 

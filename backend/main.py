@@ -3,8 +3,8 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, JSONResponse
 
-from .database import engine, Base
-from .routers import blocks
+from database import engine, Base
+from routers import blocks
 
 Base.metadata.create_all(bind=engine)
 
